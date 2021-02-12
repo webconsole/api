@@ -1,4 +1,6 @@
 {
+    "name": "webconsole/api",
+    "description": "Another great webconsOLE API.",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
