@@ -29,14 +29,10 @@ class EntrypointCest
         $I->am('Anonymous');
         $I->amGoingTo('GET entry point');
         $I->sendGET('/');
-
-        $I->expect('route is matching');
+        $I->expectTo('retrieve a list of available API resources');
         $I->seeCurrentRouteIs('api_entrypoint');
-
-        $I->expect('valid Json response');
+        $I->expect('output format is Json');
         $I->seeResponseIsJson();
-
-        $I->expect('list of available API resources');
         $I->seeResponseContains('"@type":"Entrypoint"');
     }
 }
