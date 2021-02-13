@@ -26,11 +26,17 @@ class EntrypointCest
      */
     public function tryToGetEntrypoint(ApiTester $I)
     {
-        $I->am('Anonymous API User');
-        $I->expect('a list of available API resources');
+        $I->am('Anonymous');
+        $I->amGoingTo('GET entry point');
         $I->sendGET('/');
+
+        $I->expect('route is matching');
         $I->seeCurrentRouteIs('api_entrypoint');
-        // $I->seeResponseIsValidHydra();
+
+        $I->expect('valid Json response');
+        $I->seeResponseIsJson();
+
+        $I->expect('list of available API resources');
         $I->seeResponseContains('"@type":"Entrypoint"');
     }
 }
